@@ -52,7 +52,8 @@ function aleotorioMatriz(matriz){
 }
 
 function limpiar(){
-
+    amigos = [];
+    actualizarListaDeAmigos();
 }
 
 function sortearAmigo(){
