@@ -12,7 +12,7 @@ function validarAmigo(nombre){
             return 0;
         }
     }
-    return 1;
+    return -1;
 }
 
 function agregarAmigoSecret(nombre){
@@ -53,10 +53,15 @@ function aleotorioMatriz(matriz){
 
 function limpiar(){
     amigos = [];
+    document.querySelector("#resultado").textContent = "";
     actualizarListaDeAmigos();
 }
 
 function sortearAmigo(){
+    if(amigos.length == 0){
+        alert("Debes de introducir un amigo");
+        return;
+    }
     // elegir aleatoriamente un elemento de un array y 
     //darle ese valor a amigo secreto
     amigo_secreto = aleotorioMatriz(amigos);
