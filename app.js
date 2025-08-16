@@ -2,9 +2,9 @@
 let amigo_secreto = "";
 let amigos = [];
 
-function existeAmigo(nombre){
+function validarAmigo(nombre){
     if(nombre.trim() === ""){
-        return 0;
+        return 1;
     }
 
     for(var i=0; i<amigos.length; i++){
@@ -16,8 +16,12 @@ function existeAmigo(nombre){
 }
 
 function agregarAmigoSecret(nombre){
-    if(existeAmigo(nombre) == 0){
-        alert("los nombres debeb de ser diferentes y no pueden estar vacios");
+    let validador = validarAmigo(nombre);
+    if(validador == 0){
+        alert("los nombres deben ser dieferentes");
+    }
+    else if(validador == 1){
+        alert("los nombres no deben de estar vacios")
     }
     else{
         amigos.push(nombre);
@@ -37,7 +41,6 @@ function actualizarListaDeAmigos(){
 
 function agregarAmigo(){
     let amigo = document.querySelector('#amigo');
-
     agregarAmigoSecret(amigo.value);
     amigo.value = " ";
     actualizarListaDeAmigos();
@@ -46,6 +49,10 @@ function agregarAmigo(){
 function aleotorioMatriz(matriz){
     return matriz[Math.floor(Math.random() * matriz.length)];
     //return Math.floor(Math.random() * n) + 1;
+}
+
+function limpiar(){
+
 }
 
 function sortearAmigo(){
